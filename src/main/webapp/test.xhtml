@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>register</title>
+</h:head>
+<h:body>
+    <h1 align="right">Justgiving</h1>
+    <h:form id="registerForm">
+        <!-- register a PostValidateEvent -->
+        <!--        <f:event listener="{registerView.validatePassword}"
+                         type="postValidate"/>-->
+        <h3>Create new account</h3>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="username">Name:</h:outputLabel>
+            <h:inputText id="username" value="#{userInfo.username}" required="true"
+                         requiredMessage="Please enter your username" maxlength="30">
+            </h:inputText>
+
+
+            <h:outputLabel for="password">Password:</h:outputLabel>
+            <h:inputSecret id="password" value="#{userInfo.password}"
+                           required="true" requiredMessage="Please enter password"
+                           validatorMessage="Password must contain atleast one lowercase character,
+					uppercase character, a digit and it's length must be between 6 and 20 characters">
+                <!--
+                                <f:validateRegex pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})"/>
+                -->
+                <!--                 <f:event listener="{registerView.validatePassword}" type="postValidate" />
+    -->
+            </h:inputSecret>
+            <h:commandButton value="Login" action="#{userInfo.login}"></h:commandButton>
+        </h:panelGrid>
+        <h:form>
+            <h:panelGrid columns="3" cellpadding="5">
+                <h:outputText value="KeyUp: "/>
+                <p:inputText id="firstname" value="#{userInfo.username}">
+                    <p:ajax event="keyup" update="out1"/>
+                </p:inputText>
+                <h:outputText id="out1" value="#{userInfo.username}"/>
+
+                <h:outputText value="Blur: "/>
+                <p:inputText id="surname" value="#{userInfo.password}">
+                    <p:ajax event="blur" update="out2"/>
+                </p:inputText>
+                <h:outputText id="out2" value="#{userInfo.password}"/>
+            </h:panelGrid>
+        </h:form>
+    </h:form>
+    <br/>
+    <br/>
+    <h:link value="I already have an account" outcome="signin"/>
+</h:body>
+</html>

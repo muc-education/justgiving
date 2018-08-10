@@ -1,0 +1,18 @@
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Test1</title>
+    </h:head>
+    <h:body>
+       <h3>Test1</h3>
+        <b>#{userLogin.message}</b> <br/><br/>
+		<h:form id="loginForm">
+			<h:outputLabel value="User Name:" />
+            <h:inputText value="#{userInfo.username}"/> <br/>
+			<h:outputLabel value="Password:" />
+			<h:inputSecret value="#{userInfo.password}"></h:inputSecret><br/>
+			<h:commandButton value="Submit" action="#{userInfo.register}"></h:commandButton>
+		</h:form>
+    </h:body>
+</html>

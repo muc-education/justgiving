@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+
+          
+      <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+         <h:form id="activityForm">
+        <!-- register a PostValidateEvent -->
+        <!--        <f:event listener="{registerView.validatePassword}"
+                         type="postValidate"/>-->
+        <h3>Create new account</h3>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="title">Title:</h:outputLabel>
+            <h:inputText id="title" value="#{activity.title}" required="true"
+                         requiredMessage="Please enter your title" maxlength="30">
+            </h:inputText>
+            <h:outputLabel for="money">money:</h:outputLabel>
+            <h:inputText id="money" value="#{activity.money}" required="true"
+                         requiredMessage="Please enter your expected money">
+<!--
+            <f:validator validatorId="emailValidator"/>
+-->
+            </h:inputText>
+            <h:outputLabel for="content">story:</h:outputLabel>
+            <h:inputText id="content" value="#{activity.content}"
+                           required="true" requiredMessage="Please enter story"">
+
+            </h:inputText>          
+            <h:inputText id="startDate" value="#{activity.startTime}"
+                           required="true" requiredMessage="Please enter starttime of your apply"">
+            </h:inputText>
+            <h:inputText id="endDate" value="#{activity.endTime}"
+                           required="true" requiredMessage="Please enter endtime of your apply"">
+            </h:inputText>
+            
+            <h:commandButton  value="addActivity" action="#{activity.addActivity()}"></h:commandButton>
+        </h:panelGrid>
+    </h:form>
+    </h:body>
+</html>
+
